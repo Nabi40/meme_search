@@ -44,12 +44,10 @@ It allows you to input a natural language query (e.g., *"girl crying"*) and retu
 
 ## ❌ Limitations
 
-- 🔸 Only searches among 5 hardcoded meme images  
-- 🔸 Only shows the single best match (no ranked list)  
-- 🔸 No GUI — runs entirely within Jupyter Notebook  
-- 🔸 Not integrated with any external search engine or meme database
+- Only searches among 5 hardcoded meme images  
+- Only shows the single best match (no ranked list)  
+- No GUI — runs entirely within Jupyter Notebook  
+- Not integrated with any external search engine or meme database
 
----
 
-## 📁 Directory Structure
 

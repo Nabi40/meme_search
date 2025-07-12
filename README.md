@@ -1,24 +1,55 @@
-﻿## meme_search
+﻿## meme_search  
+**OpenAI CLIP · Vision-Language Model · Image Search**  
 
-This project allows you to **search memes using natural language queries** powered by OpenAI's **CLIP (Contrastive Language-Image Pretraining)** model.  
-It downloads a set of meme images, displays them, and uses CLIP to find the most relevant meme for a given text prompt.
+This project demonstrates a simple image search engine using OpenAI's **CLIP** model.  
+It allows you to input a natural language query (e.g., *"girl crying"*) and returns the most relevant meme image based on semantic similarity.
 
 ---
 
-## 📁 Project Overview
+## 📌 How It Works
 
-`meme_search.ipynb` performs the following steps:
+### 1. Download Memes  
+- Downloads 5 meme images from a remote server  
+- Saves them in the `content/memes/` directory
 
-1. **Download Memes**  
-   Downloads 5 example meme images from a remote server and saves them to `content/memes/`.
+### 2. Display Memes  
+- Loads and displays all meme images using `PIL.Image`  
+- Resizes for consistent visualization
 
-2. **Display Memes**  
-   Displays all valid meme images in the notebook using PIL.
+### 3. Load CLIP Model  
+- Loads the `ViT-B/32` variant of OpenAI’s CLIP  
+- Uses `clip.load()` and detects GPU or CPU
 
-3. **Search Memes with CLIP**  
-   Uses OpenAI's `ViT-B/32` CLIP model to embed both the images and your text query, then returns the most similar meme.
+### 4. Preprocess Images  
+- Filters for supported image types  
+- Preprocesses each image into tensors using CLIP's preprocessing pipeline
 
-4. **Query Example**  
-   You can search memes with any natural language prompt, e.g.:
-   ```python
-   query = "girl crying"
+### 5. Search by Text  
+- Tokenizes the user’s query  
+- Encodes both the query and images with CLIP  
+- Computes cosine similarity between the text and image features  
+- Returns and displays the most relevant image
+
+---
+
+## 📌 Features
+
+- ✅ Semantic image search with natural language  
+- 🤖 Powered by OpenAI’s CLIP model (`ViT-B/32`)  
+- 🖼️ Displays all valid meme images  
+- 🔍 Top-1 most relevant result shown automatically  
+- 🚫 Skips corrupt/unreadable images
+
+---
+
+## ❌ Limitations
+
+- 🔸 Only searches among 5 hardcoded meme images  
+- 🔸 Only shows the single best match (no ranked list)  
+- 🔸 No GUI — runs entirely within Jupyter Notebook  
+- 🔸 Not integrated with any external search engine or meme database
+
+---
+
+## 📁 Directory Structure
+
